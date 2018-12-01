@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 function serveTime(req,res) {
   const {date_string} = req.params;
-  const time = date_string ? Date.parse(date_string) : new Date();
+  const time = date_string ? new Date(date_string) : new Date();
   res.send( {
     "unix" : time.getTime(date_string),
     "utc"  : time.toUTCString(date_string),
